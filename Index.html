@@ -3452,6 +3452,192 @@ nav.scrolled { background: rgba(5,8,15,0.97) !important; }
   .vm-grid { grid-template-columns: repeat(2,1fr) !important; }
 }
 
+
+/* ══ WCAG AA Body Text Contrast Fix — v4 ══
+   Minimum contrast ratio 4.5:1 on dark backgrounds */
+.hero-sub p,
+.hero-sub,
+.problem-text,
+.s-body,
+.pcard-d,
+.hstep-desc,
+.sol-card-desc,
+.dc-sub,
+.trust-desc,
+.price-desc,
+.cta-note,
+footer p,
+.disclaimer {
+  font-weight: 400 !important;
+  color: rgba(190, 215, 255, 0.72) !important;
+}
+
+
+/* ══ MOBILE RESPONSIVENESS — v4 ══
+   Three breakpoints: 1024px / 768px / 480px
+   CSS only — no JS. Touch targets ≥ 44px. */
+
+/* ─── 1024px — Tablet ─────────────────────────── */
+@media (max-width: 1024px) {
+  /* Section padding */
+  section, .hero, .problem, .how, .dashboard,
+  .solutions, .trust, .pricing, .cta-section {
+    padding-left: 48px !important;
+    padding-right: 48px !important;
+  }
+  .section-inner { padding: 80px 0 !important; }
+
+  /* Grids: 3 col → 2 col */
+  .problem-grid, .how-grid, .sol-grid,
+  .price-grid, .stagger-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  /* Hero h1 proportional reduction */
+  .hero h1 { font-size: clamp(42px, 6vw, 72px) !important; }
+
+  /* Dashboard: allow horizontal scroll */
+  .dash-container { overflow-x: auto; }
+}
+
+/* ─── 768px — Mobile ──────────────────────────── */
+@media (max-width: 768px) {
+  /* All grids → single column */
+  .problem-grid, .how-grid, .sol-grid,
+  .price-grid, .stagger-grid,
+  .dash-row, .ai-demo-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Section padding */
+  section, .hero, .problem, .how, .dashboard,
+  .solutions, .trust, .pricing, .cta-section {
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+  }
+  .section-inner { padding: 48px 0 !important; }
+
+  /* Nav: show hamburger, hide links */
+  .nav-links { display: none !important; }
+  .nav-hamburger { display: flex !important; }
+  nav { padding: 0 24px !important; }
+
+  /* Hero */
+  .hero h1 { font-size: clamp(36px, 9vw, 56px) !important; }
+  .hero { padding: 100px 24px 60px !important; }
+  .hero-actions { flex-direction: column !important; align-items: stretch !important; }
+  .hero-actions .btn-primary,
+  .hero-actions .btn-secondary { width: 100% !important; text-align: center !important; }
+  .hero-stats { flex-wrap: wrap !important; gap: 16px !important; }
+
+  /* Dashboard: horizontal scroll on mobile */
+  .dash-container {
+    overflow-x: auto !important;
+    min-width: 0 !important;
+  }
+  .dash-body { min-width: 680px !important; }
+
+  /* Cards: full width */
+  .pcard, .hstep, .sol-card, .price-card { width: 100% !important; }
+
+  /* Touch targets */
+  .btn-primary, .btn-secondary, .nav-cta,
+  .price-btn, .price-btn-f, .price-btn-o {
+    min-height: 44px !important;
+    min-width: 44px !important;
+  }
+
+  /* Pricing: full width stack */
+  .price-grid { gap: 16px !important; }
+
+  /* Footer */
+  .footer-cols { grid-template-columns: 1fr 1fr !important; gap: 32px !important; }
+  .footer-bottom { flex-direction: column !important; gap: 12px !important; text-align: center !important; }
+}
+
+/* ─── 480px — Small mobile ────────────────────── */
+@media (max-width: 480px) {
+  /* Sections */
+  section, .hero, .problem, .how, .dashboard,
+  .solutions, .trust, .pricing, .cta-section {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  /* Font sizes */
+  .hero h1 { font-size: clamp(32px, 9vw, 44px) !important; }
+  .s-heading { font-size: clamp(24px, 6vw, 36px) !important; }
+  .s-body, .hero-sub p { font-size: 15px !important; }
+  .pcard-d, .hstep-desc, .sol-card-desc { font-size: 13px !important; }
+
+  /* Pricing: Featured card first via order */
+  .price-card.featured { order: -1 !important; }
+  .price-grid { display: flex !important; flex-direction: column !important; }
+
+  /* CTA buttons: full width */
+  .btn-primary, .btn-secondary,
+  .price-btn, .price-btn-f, .price-btn-o,
+  .cta-btns .btn-primary, .cta-btns .btn-secondary {
+    width: 100% !important;
+    display: block !important;
+    text-align: center !important;
+  }
+  .cta-btns { flex-direction: column !important; }
+
+  /* Footer: single column */
+  .footer-cols { grid-template-columns: 1fr !important; }
+
+  /* Nav */
+  nav { padding: 0 16px !important; }
+  .nav-logo-text { font-size: 16px !important; }
+}
+
+/* ─── Hamburger menu button (hidden by default) ── */
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  min-height: 44px;
+  min-width: 44px;
+  align-items: center;
+  justify-content: center;
+}
+.nav-hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: rgba(220,235,255,0.8);
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+
+/* ─── Mobile nav open state ─────────────────────── */
+nav.mobile-open .nav-links {
+  display: flex !important;
+  position: fixed !important;
+  top: 60px !important;
+  left: 0 !important;
+  right: 0 !important;
+  flex-direction: column !important;
+  background: rgba(5,8,20,0.97) !important;
+  backdrop-filter: blur(20px) !important;
+  padding: 24px !important;
+  gap: 20px !important;
+  border-bottom: 1px solid rgba(255,255,255,0.08) !important;
+  z-index: 999 !important;
+}
+nav.mobile-open .nav-links a {
+  font-size: 16px !important;
+  color: rgba(220,235,255,0.85) !important;
+  min-height: 44px !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
 </style>
 </head>
 <body>
@@ -3622,14 +3808,14 @@ nav.scrolled { background: rgba(5,8,15,0.97) !important; }
     <div class="hero-left">
       <div class="hero-badge">
         <span class="badge-dot"></span>
-        AI-Powered Immigration Education Platform
+        15 Visa Pathways · Published Government Criteria
       </div>
       <h1>
-        <span class="word-line"><span>Immigration,</span></span>
-        <span class="word-line"><span><em>finally</em></span></span>
-        <span class="word-line"><span>simplified.</span></span>
-      </h1>
-      <p class="hero-sub">Answer a few simple questions about your background. HARBOX compares your profile against official Australian visa criteria and generates a personalised Pathway Report — so you can understand your options with clarity and confidence.</p>
+  <span class="word-line"><span>See</span></span>
+  <span class="word-line"><span>where you</span></span>
+  <span class="word-line"><span><em>stand.</em></span></span>
+</h1>
+      <p class="hero-sub">Answer a few simple questions about your background, work, and education. We'll check your profile against the published criteria for 15 Australian visa pathways — and show you exactly which ones you already meet, and which ones still need attention.</p>
       <div class="hero-btns">
         <button class="btn-primary">Get My Free Pathway Report →</button>
         <a href="#how" class="btn-ghost">See How It Works</a>
@@ -3700,14 +3886,14 @@ nav.scrolled { background: rgba(5,8,15,0.97) !important; }
         <p class="problem-text" style="font-size:14px;color:var(--muted2);line-height:1.9;margin-bottom:16px">Millions want to build a new life in Australia — but the visa process is complex, time-consuming, and often difficult to navigate without professional help. Most people don't know where to start.</p>
         <p class="problem-text" style="font-size:14px;color:var(--muted2);line-height:1.9;margin-bottom:32px"><strong>HARBOX changes that.</strong> We organise publicly available government information and put it directly in your hands — clearly, simply, and affordably.</p>
         <div class="problem-stats stagger-grid">
-          <div class="pstat"><div class="pstat-n">$3k–$10k+</div><div class="pstat-l">Typical agent fee range</div></div>
+          <div class="pstat"><div class="pstat-n">Hours</div><div class="pstat-l">Of research to understand your options</div></div>
           <div class="pstat"><div class="pstat-n">6–18 mo</div><div class="pstat-l">Typical processing time</div></div>
           <div class="pstat"><div class="pstat-n">280k+</div><div class="pstat-l">Annual AU visa apps</div></div>
           <div class="pstat"><div class="pstat-n">Complex</div><div class="pstat-l">100+ visa subclasses</div></div>
         </div>
       </div>
       <div class="problem-cards slide-right">
-        <div class="pcard"><div class="pcard-num">01</div><div><div class="pcard-t">Know your options before you spend a cent</div><div class="pcard-d">A one-hour consultation with a migration agent — just to understand which pathway suits you — typically costs $200–$300 AUD. A full engagement runs $5,000–$8,000+. A HARBOX Pathway Report gives you that same clarity, based on the same published government criteria, for a fraction of that cost. Arrive informed. Not starting from zero.</div></div></div>
+        <div class="pcard"><div class="pcard-num">01</div><div><div class="pcard-t">Know your options before you spend a cent</div><div class="pcard-d">A one-hour consultation with a migration agent — just to understand which pathways might apply to you — typically costs $200–$300 AUD. A full engagement runs $5,000–$8,000+. Most people pay those fees before they even know which published criteria they already meet. HARBOX shows you that first — exactly which criteria your profile matches and which ones still need attention — so when you do talk to a professional, you arrive knowing your situation. Not starting from zero.</div></div></div>
         <div class="pcard"><div class="pcard-num">02</div><div><div class="pcard-t">The process is overwhelming</div><div class="pcard-d">Hundreds of visa types, changing regulations, complex portals — most people don't know where to start.</div></div></div>
         <div class="pcard"><div class="pcard-num">03</div><div><div class="pcard-t">No clarity before spending money</div><div class="pcard-d">You should know what's possible before spending a cent. Most people hire an agent before understanding their options.</div></div></div>
         <div class="pcard"><div class="pcard-num">04</div><div><div class="pcard-t">Emotional stress & lack of clarity</div><div class="pcard-d">Your future is on the line. Uncertainty and confusing jargon create enormous anxiety for applicants and their families.</div></div></div>
@@ -3722,12 +3908,28 @@ nav.scrolled { background: rgba(5,8,15,0.97) !important; }
   <div class="section-inner">
     <div class="s-eyebrow reveal"><span class="eyebrow-line"></span>How It Works</div>
     <h2 class="s-heading reveal">Four steps to <em>understanding your options</em></h2>
-    <p class="s-body reveal">From your first question to your application plan — clear, structured, and explained every step of the way.</p>
+    <p class="s-body reveal">From your first question to seeing exactly where you stand — clear, structured, and explained every step of the way.</p>
     <div class="how-steps stagger-grid">
       <div class="hstep"><div class="hstep-num">01</div><span class="hstep-icon">📋</span><div class="hstep-title">Answer Your Profile</div><div class="hstep-desc">Simple questions about your background, education, work experience and goals. Plain language, no jargon — takes about 5–10 minutes.</div></div>
-      <div class="hstep"><div class="hstep-num">02</div><span class="hstep-icon">🤖</span><div class="hstep-title">AI Analyses Options</div><div class="hstep-desc">Our AI compares your answers against the published criteria for Australian visa pathways — and identifies where your profile aligns.</div></div>
-      <div class="hstep"><div class="hstep-num">03</div><span class="hstep-icon">🎯</span><div class="hstep-title">See Your Pathways</div><div class="hstep-desc">Receive a personalised Pathway Report showing how your profile compares to published visa requirements — including what you may still need to prepare.</div></div>
-      <div class="hstep"><div class="hstep-num">04</div><span class="hstep-icon">✈️</span><div class="hstep-title">Understand What's Next</div><div class="hstep-desc">Follow a clear, step-by-step educational guide to help you navigate the official government application process. For complex cases, a MARA-registered migration agent can help.</div></div>
+      <div class="hstep"><div class="hstep-num">02</div><span class="hstep-icon">🤖</span><div class="hstep-title">We Check Your Profile</div><div class="hstep-desc">Based on your answers, we check your profile against the published criteria for 15 Australian visa pathways — and show you exactly which published criteria your profile aligns with.</div></div>
+      <div class="hstep"><div class="hstep-num">03</div><span class="hstep-icon">🎯</span><div class="hstep-title">See Where You Stand</div><div class="hstep-desc">Your Pathway Report shows you, for each visa category, which published criteria you meet and which ones still need attention — all explained in plain language.</div></div>
+      <div class="hstep"><div class="hstep-num">04</div><span class="hstep-icon">✈️</span><div class="hstep-title">Understand What's Next</div><div class="hstep-desc">Understand what comes next — with published information about each step of the process, clearly explained. For support with your specific circumstances, a registered migration agent or immigration lawyer can help.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SOLUTIONS ══ -->
+<section class="solutions">
+  <div class="section-inner">
+    <div class="s-eyebrow reveal"><span class="eyebrow-line"></span>What We Offer</div>
+    <h2 class="s-heading reveal">Tools to help you <em>move forward</em></h2>
+    <div class="sol-grid stagger-grid">
+      <div class="sol-card"><div class="sol-card-icon">🧠</div><div class="sol-card-title">AI Pathway Comparison</div><div class="sol-card-desc">Compare your profile against published Australian visa criteria. Get your initial results at no cost.</div><span class="sol-card-tag">Powered by AI</span></div>
+      <div class="sol-card"><div class="sol-card-icon">📄</div><div class="sol-card-title">Pathway Report</div><div class="sol-card-desc">Your personalised Pathway Report — showing you, for each visa category, which published criteria your profile meets and which ones still need attention. With plain-language explanations and the official source for each criterion.</div><span class="sol-card-tag">Educational Report</span></div>
+      <div class="sol-card"><div class="sol-card-icon">🗺️</div><div class="sol-card-title">Skills Assessment Guide</div><div class="sol-card-desc">Educational overview of skills assessment requirements for your occupation, including TRA, Engineers Australia, AHPRA and other assessing authorities.</div><span class="sol-card-tag">Skilled Workers</span></div>
+      <div class="sol-card"><div class="sol-card-icon">📋</div><div class="sol-card-title">Application Overview</div><div class="sol-card-desc">An educational overview of the published application process — including the types of documents typically required, the main steps involved, and what to expect along the way. For support with your specific application, a MARA-registered migration agent can assist.</div><span class="sol-card-tag">Step-by-Step</span></div>
+      <div class="sol-card"><div class="sol-card-icon">🏠</div><div class="sol-card-title">Post-Arrival Support</div><div class="sol-card-desc">TFN, ABN, bank account, housing, job search — your full settlement journey explained.</div><span class="sol-card-tag">After Arrival</span></div>
+      <div class="sol-card"><div class="sol-card-icon">🔒</div><div class="sol-card-title">Document Vault</div><div class="sol-card-desc">Store your visa, passport, TFN, contracts securely. Access anywhere, anytime.</div><span class="sol-card-tag">Coming Phase 2</span></div>
     </div>
   </div>
 </section>
@@ -3811,22 +4013,6 @@ nav.scrolled { background: rgba(5,8,15,0.97) !important; }
   </div>
 </section>
 
-<!-- ══ SOLUTIONS ══ -->
-<section class="solutions">
-  <div class="section-inner">
-    <div class="s-eyebrow reveal"><span class="eyebrow-line"></span>What We Offer</div>
-    <h2 class="s-heading reveal">Tools to help you <em>move forward</em></h2>
-    <div class="sol-grid stagger-grid">
-      <div class="sol-card"><div class="sol-card-icon">🧠</div><div class="sol-card-title">AI Pathway Comparison</div><div class="sol-card-desc">Compare your profile against published Australian visa criteria. Get your initial results at no cost.</div><span class="sol-card-tag">Powered by AI</span></div>
-      <div class="sol-card"><div class="sol-card-icon">📄</div><div class="sol-card-title">Pathway Report</div><div class="sol-card-desc">5-section personalised report: profile summary, matching visas, requirements, gaps, and plain language explanations.</div><span class="sol-card-tag">Educational Report</span></div>
-      <div class="sol-card"><div class="sol-card-icon">🗺️</div><div class="sol-card-title">Skills Assessment Guide</div><div class="sol-card-desc">Educational overview of skills assessment requirements for your occupation, including TRA, Engineers Australia, AHPRA and other assessing authorities.</div><span class="sol-card-tag">Skilled Workers</span></div>
-      <div class="sol-card"><div class="sol-card-icon">📋</div><div class="sol-card-title">Application Guide</div><div class="sol-card-desc">Educational walkthrough of the ImmiAccount process — including forms, documents, and submission steps. Designed to help you feel prepared and confident.</div><span class="sol-card-tag">Step-by-Step</span></div>
-      <div class="sol-card"><div class="sol-card-icon">🏠</div><div class="sol-card-title">Post-Arrival Support</div><div class="sol-card-desc">TFN, ABN, bank account, housing, job search — your full settlement journey explained.</div><span class="sol-card-tag">After Arrival</span></div>
-      <div class="sol-card"><div class="sol-card-icon">🔒</div><div class="sol-card-title">Document Vault</div><div class="sol-card-desc">Store your visa, passport, TFN, contracts securely. Access anywhere, anytime.</div><span class="sol-card-tag">Coming Phase 2</span></div>
-    </div>
-  </div>
-</section>
-
 <!-- ══ TRUST ══ -->
 <!-- ══ PHOTO MOSAIC + SOCIAL PROOF ══ -->
 <!-- ══ TESTIMONIAL TICKER — scrolls right to left ══ -->
@@ -3846,8 +4032,8 @@ nav.scrolled { background: rgba(5,8,15,0.97) !important; }
 <section class="pricing" id="pricing">
   <div class="section-inner">
     <div class="s-eyebrow reveal" style="justify-content:center"><span class="eyebrow-line"></span>Pricing</div>
-    <h2 class="s-heading reveal" style="text-align:center">Understand your options. <em>Start free.</em></h2>
-    <p class="s-body reveal" style="text-align:center;margin:0 auto">Explore your visa pathways before spending thousands on professional advice.</p>
+    <h2 class="s-heading reveal" style="text-align:center">See where you stand. <em>Start free.</em></h2>
+    <p class="s-body reveal" style="text-align:center;margin:0 auto">Check your profile against published criteria for 15 Australian visa pathways. Takes about 5 minutes — no credit card required.</p>
     <div class="price-grid stagger-grid">
       <div class="price-card">
         <div class="price-tier">Starter</div>
@@ -3857,18 +4043,18 @@ nav.scrolled { background: rgba(5,8,15,0.97) !important; }
         <button class="price-btn price-btn-o">Get My Free Pathway Report →</button>
       </div>
       <div class="price-card featured">
-        <div class="price-badge">Most Popular</div>
+        <div class="price-badge">Most Complete</div>
         <div class="price-tier">Professional</div>
         <div class="price-amount"><span class="price-sym">$</span><span class="price-num">29</span><span class="price-per">/mo</span></div>
-        <div class="price-desc">Detailed educational tools to help you understand your visa pathway.</div>
+        <div class="price-desc">Your complete Pathway Report — showing exactly which published criteria your profile meets and which ones still need attention, for every visa category. With a document checklist and plain-language explanations for each criterion.</div>
         <ul class="price-list"><li>Unlimited pathway comparisons</li><li>Complete Pathway Report</li><li>Document checklist</li><li>Real-time updates</li><li>Priority support</li></ul>
         <button class="price-btn price-btn-f">Get My Pathway Report →</button>
       </div>
       <div class="price-card">
         <div class="price-tier">Family</div>
         <div class="price-amount"><span class="price-sym">$</span><span class="price-num">59</span><span class="price-per">/mo</span></div>
-        <div class="price-desc">Educational tools for your whole family's migration research.</div>
-        <ul class="price-list"><li>Everything in Professional</li><li>Up to 5 family profiles</li><li>Family reunification pathways</li><li>Dedicated AI family guide</li><li>MARA agent referral information included</li></ul>
+        <div class="price-desc">Everything in Professional — for up to 5 family members. Check each person's profile separately and see where everyone stands.</div>
+        <ul class="price-list"><li>Everything in Professional</li><li>Up to 5 family profiles</li><li>Check profiles for up to 5 family members</li><li>AI assistant for all family profiles</li><li>MARA agent referral information included</li></ul>
         <button class="price-btn price-btn-o">Get Family Plan</button>
       </div>
     </div>
