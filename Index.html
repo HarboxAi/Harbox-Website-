@@ -3638,6 +3638,186 @@ nav.mobile-open .nav-links a {
   align-items: center !important;
 }
 
+
+/* ══ HERO MICRO-DISCLAIMER ══ */
+.hero-disclaimer {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: rgba(190, 215, 255, 0.55);
+  text-align: center;
+  margin-top: 24px;
+}
+
+/* ══ WCAG AA BODY TEXT — v5 (site-wide) ══ */
+.hero-sub, .hero-sub p, .problem-text, .s-body,
+.pcard-d, .hstep-desc, .sol-card-desc,
+.dc-sub, .trust-desc, .price-desc, .cta-note,
+.cta-body, .footer-text, .disclaimer,
+.vm-card-desc, .vm-footer-note,
+footer p, p {
+  font-weight: 400 !important;
+  color: rgba(190, 215, 255, 0.72) !important;
+}
+
+/* ══ NUMERIC DISPLAYS — Inter 700 (crisp on all screens) ══ */
+.pstat-n, .price-amount, .price-num, .dc-value,
+.stat-number, .data-display, .hero-stat-num,
+.score-num, .pstat-n {
+  font-family: 'Inter', -apple-system, sans-serif !important;
+  font-weight: 700 !important;
+}
+
+/* ══ CARD PADDING STANDARDISATION — 32px 28px ══ */
+.pcard, .hstep, .sol-card, .dash-card,
+.price-card, .trust-card, .tt-card, .tt-card-alt {
+  padding: 32px 28px !important;
+}
+
+/* ══ MOBILE RESPONSIVENESS v5 — Full Site ══
+   Replaces/augments v4 breakpoints
+   CSS only · Touch targets ≥ 44px · WCAG 2.5.5 */
+
+/* ─── Hamburger (hidden by default) ─────── */
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  min-height: 44px;
+  min-width: 44px;
+  align-items: center;
+  justify-content: center;
+}
+.nav-hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: rgba(220,235,255,0.8);
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+nav.mobile-open .nav-links {
+  display: flex !important;
+  position: fixed !important;
+  top: 60px !important; left: 0 !important; right: 0 !important;
+  flex-direction: column !important;
+  background: rgba(5,8,20,0.97) !important;
+  backdrop-filter: blur(20px) !important;
+  padding: 24px !important;
+  gap: 20px !important;
+  border-bottom: 1px solid rgba(255,255,255,0.08) !important;
+  z-index: 999 !important;
+}
+nav.mobile-open .nav-links a {
+  font-size: 16px !important;
+  color: rgba(220,235,255,0.85) !important;
+  min-height: 44px !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+/* ─── 1024px — Tablet ─────────────────── */
+@media (max-width: 1024px) {
+  section, .hero, .problem, .how, .dashboard,
+  .solutions, .trust, .pricing, .cta-section,
+  .edu-statement { padding-left: 48px !important; padding-right: 48px !important; }
+
+  .problem-grid, .how-grid, .sol-grid, .price-grid, .stagger-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  .hero h1 { font-size: clamp(42px, 6vw, 72px) !important; }
+  .dash-container { overflow-x: auto !important; }
+  .footer-cols { grid-template-columns: repeat(2, 1fr) !important; }
+}
+
+/* ─── 768px — Mobile ──────────────────── */
+@media (max-width: 768px) {
+  section, .hero, .problem, .how, .dashboard,
+  .solutions, .trust, .pricing, .cta-section,
+  .edu-statement {
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+  }
+  .problem-grid, .how-grid, .sol-grid, .price-grid,
+  .stagger-grid, .dash-row, .footer-cols {
+    grid-template-columns: 1fr !important;
+  }
+  .nav-links { display: none !important; }
+  .nav-hamburger { display: flex !important; }
+  nav { padding: 0 24px !important; }
+  .hero h1 { font-size: clamp(36px, 9vw, 56px) !important; }
+  .hero { padding: 100px 24px 60px !important; }
+  .hero-actions {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    width: 100% !important;
+  }
+  .hero-actions .btn-primary,
+  .hero-actions .btn-secondary,
+  .hero-actions .btn-ghost {
+    width: 100% !important;
+    text-align: center !important;
+    min-height: 44px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  .hero-stats { flex-wrap: wrap !important; gap: 16px !important; justify-content: center !important; }
+  .dash-container { overflow-x: auto !important; }
+  .dash-body { min-width: 600px !important; }
+  .pcard, .hstep, .sol-card, .price-card { width: 100% !important; }
+  .btn-primary, .btn-secondary, .nav-cta,
+  .price-btn, .price-btn-f, .price-btn-o {
+    min-height: 44px !important; min-width: 44px !important;
+  }
+  .price-grid { gap: 16px !important; }
+  .footer-bottom {
+    flex-direction: column !important;
+    gap: 12px !important;
+    text-align: center !important;
+  }
+  .edu-inner { flex-direction: column !important; }
+  .sp-row { flex-wrap: wrap !important; justify-content: center !important; }
+  .cta-section .hero-actions,
+  .cta-btns { flex-direction: column !important; align-items: stretch !important; }
+}
+
+/* ─── 480px — Small mobile ───────────── */
+@media (max-width: 480px) {
+  section, .hero, .problem, .how, .dashboard,
+  .solutions, .trust, .pricing, .cta-section,
+  .edu-statement { padding-left: 16px !important; padding-right: 16px !important; }
+
+  .hero h1 { font-size: clamp(30px, 9vw, 40px) !important; }
+  .s-heading { font-size: clamp(22px, 6vw, 32px) !important; }
+  .s-body, .hero-sub, .hero-sub p { font-size: 15px !important; }
+  .pcard-d, .hstep-desc, .sol-card-desc { font-size: 13px !important; }
+
+  .price-card.featured { order: -1 !important; }
+  .price-grid {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  .btn-primary, .btn-secondary,
+  .price-btn, .price-btn-f, .price-btn-o,
+  .cta-btns .btn-primary, .cta-btns .btn-secondary {
+    width: 100% !important;
+    display: block !important;
+    text-align: center !important;
+    min-height: 44px !important;
+  }
+  .cta-btns { flex-direction: column !important; }
+  .footer-cols { grid-template-columns: 1fr !important; }
+  nav { padding: 0 16px !important; }
+  .nav-logo-text { font-size: 15px !important; }
+  .hero-stat-divider { display: none !important; }
+  .hero-stats { flex-direction: column !important; align-items: center !important; gap: 12px !important; }
+}
+
 </style>
 </head>
 <body>
@@ -3820,6 +4000,7 @@ nav.mobile-open .nav-links a {
         <button class="btn-primary">Get My Free Pathway Report →</button>
         <a href="#how" class="btn-ghost">See How It Works</a>
       </div>
+      <div class="hero-disclaimer">Structured information — not immigration advice.</div>
       <div class="hero-social-proof">
         <div class="sp-avatars">
           <div class="sp-avatar">A</div>
@@ -3880,13 +4061,13 @@ nav.mobile-open .nav-links a {
 <section class="problem">
   <div class="section-inner">
     <div class="s-eyebrow reveal"><span class="eyebrow-line"></span>The Challenge</div>
-    <h2 class="s-heading reveal">Navigating the visa process <em>shouldn't be this hard</em></h2>
+    <h2 class="s-heading reveal">Understanding your visa situation <em>shouldn't be this hard</em></h2>
     <div class="problem-grid">
       <div class="slide-left">
-        <p class="problem-text" style="font-size:14px;color:var(--muted2);line-height:1.9;margin-bottom:16px">Millions want to build a new life in Australia — but the visa process is complex, time-consuming, and often difficult to navigate without professional help. Most people don't know where to start.</p>
+        <p class="problem-text" style="font-size:14px;color:var(--muted2);line-height:1.9;margin-bottom:16px">Millions want to build a new life in Australia — but the visa process is complex, time-consuming, and often difficult to understand without professional help. Most people don't know where to start.</p>
         <p class="problem-text" style="font-size:14px;color:var(--muted2);line-height:1.9;margin-bottom:32px"><strong>HARBOX changes that.</strong> We organise publicly available government information and put it directly in your hands — clearly, simply, and affordably.</p>
         <div class="problem-stats stagger-grid">
-          <div class="pstat"><div class="pstat-n">Hours</div><div class="pstat-l">Of research to understand your options</div></div>
+          <div class="pstat"><div class="pstat-n">100+ hrs</div><div class="pstat-l">Average research before clarity</div></div>
           <div class="pstat"><div class="pstat-n">6–18 mo</div><div class="pstat-l">Typical processing time</div></div>
           <div class="pstat"><div class="pstat-n">280k+</div><div class="pstat-l">Annual AU visa apps</div></div>
           <div class="pstat"><div class="pstat-n">Complex</div><div class="pstat-l">100+ visa subclasses</div></div>
@@ -3907,7 +4088,7 @@ nav.mobile-open .nav-links a {
   <div class="how-orb"></div>
   <div class="section-inner">
     <div class="s-eyebrow reveal"><span class="eyebrow-line"></span>How It Works</div>
-    <h2 class="s-heading reveal">Four steps to <em>understanding your options</em></h2>
+    <h2 class="s-heading reveal">Four steps to <em>seeing where you stand</em></h2>
     <p class="s-body reveal">From your first question to seeing exactly where you stand — clear, structured, and explained every step of the way.</p>
     <div class="how-steps stagger-grid">
       <div class="hstep"><div class="hstep-num">01</div><span class="hstep-icon">📋</span><div class="hstep-title">Answer Your Profile</div><div class="hstep-desc">Simple questions about your background, education, work experience and goals. Plain language, no jargon — takes about 5–10 minutes.</div></div>
@@ -4038,7 +4219,7 @@ nav.mobile-open .nav-links a {
       <div class="price-card">
         <div class="price-tier">Starter</div>
         <div class="price-amount"><span class="price-sym">$</span><span class="price-num">0</span><span class="price-per">/mo</span></div>
-        <div class="price-desc">Explore your options before spending anything.</div>
+        <div class="price-desc">See where you stand before spending anything.</div>
         <ul class="price-list"><li>3 pathway comparisons/month</li><li>Basic criteria comparison</li><li>Australia guide</li><li>Email support</li></ul>
         <button class="price-btn price-btn-o">Get My Free Pathway Report →</button>
       </div>
@@ -4047,14 +4228,14 @@ nav.mobile-open .nav-links a {
         <div class="price-tier">Professional</div>
         <div class="price-amount"><span class="price-sym">$</span><span class="price-num">29</span><span class="price-per">/mo</span></div>
         <div class="price-desc">Your complete Pathway Report — showing exactly which published criteria your profile meets and which ones still need attention, for every visa category. With a document checklist and plain-language explanations for each criterion.</div>
-        <ul class="price-list"><li>Unlimited pathway comparisons</li><li>Complete Pathway Report</li><li>Document checklist</li><li>Real-time updates</li><li>Priority support</li></ul>
+        <ul class="price-list"><li>Unlimited pathway comparisons</li><li>Complete Pathway Report</li><li>Document checklist</li><li>Real-time updates <span style="font-size:11px;font-weight:400;color:rgba(190,215,255,0.4);font-style:italic">· Coming Soon</span></li><li>Priority support</li></ul>
         <button class="price-btn price-btn-f">Get My Pathway Report →</button>
       </div>
       <div class="price-card">
         <div class="price-tier">Family</div>
         <div class="price-amount"><span class="price-sym">$</span><span class="price-num">59</span><span class="price-per">/mo</span></div>
         <div class="price-desc">Everything in Professional — for up to 5 family members. Check each person's profile separately and see where everyone stands.</div>
-        <ul class="price-list"><li>Everything in Professional</li><li>Up to 5 family profiles</li><li>Check profiles for up to 5 family members</li><li>AI assistant for all family profiles</li><li>MARA agent referral information included</li></ul>
+        <ul class="price-list"><li>Everything in Professional</li><li>Check profiles for up to 5 family members</li><li>AI assistant for all family profiles</li><li>MARA agent referral information included</li></ul>
         <button class="price-btn price-btn-o">Get Family Plan</button>
       </div>
     </div>
@@ -4066,7 +4247,7 @@ nav.mobile-open .nav-links a {
   <div class="cta-glow"></div>
   <div class="section-inner" style="position:relative;z-index:1">
     <h2 class="reveal">Start with clarity, <em>not confusion.</em></h2>
-    <p class="reveal">Understand your Australian visa options using officially published government criteria. Start free — no credit card required.</p>
+    <p class="reveal">See how your profile compares to published Australian visa criteria. Start free — no credit card required.</p>
     <div class="cta-btns reveal">
       <button class="btn-primary">Get My Free Pathway Report →</button>
       <a href="#how" class="btn-ghost">See How It Works</a>
